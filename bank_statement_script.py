@@ -1,4 +1,5 @@
 import pandas as pd
+import sys
 
 def transform_bank_statement(input_file, output_file):
     """
@@ -56,6 +57,16 @@ def transform_bank_statement(input_file, output_file):
         print(f"An error occurred: {e}")
 
 # Example usage:
-input_file = 'Acct_Statement_XX8627_16012025.csv'
-output_file = 'zoho_statement.csv'
+in_file = sys.argv[1]
+out_file = sys.argv[2]
+if in_file != "":
+    input_file = in_file
+else:
+    input_file = 'Acct Statement_XX8627_16012025.csv'
+
+if out_file != "":
+    output_file = out_file
+else:    
+    output_file = 'zoho_statement.csv'
+
 transform_bank_statement(input_file, output_file)
